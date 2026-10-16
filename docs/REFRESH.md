@@ -16,19 +16,17 @@ task that starts a fresh session there twice a day is the simplest way to do it.
 run means no state carries over except what is in the repo.
 
 Content packs need no API key: the scheduled session is Claude, so after `scripts/refresh.sh` it
-writes `data/content_packs.json` itself, following `content-packs/voice.md` and the
-`content_packs.json` format in `docs/DATA.md`. The only secret involved is the YouTube key.
+writes `data/content_packs.json` itself, following `content-packs/WRITING.md` and
+`content-packs/voice.md`. The only secret involved is the YouTube key.
 
 ## The scheduled task's prompt
 
 ```
 AI Creator Radar cloud refresh. In the cth9191/ai-creator-radar repo:
 1. Run `bash scripts/refresh.sh` and read its output.
-2. It always prints "content_packs SKIPPED": write data/content_packs.json yourself: take the top 5
-   stories by gap_score from data/youtube_coverage.json joined to data/x_trends.json (skip if either
-   is sample data), and write one pack each in the format in docs/DATA.md, in the voice of
-   content-packs/voice.md. Keep packs whose story is unchanged. Prepend a refresh_log entry
-   (job cloud_refresh, step content_packs).
+2. It prints "content_packs SKIPPED": write the content packs yourself by following content-packs/WRITING.md
+   (run `node content-packs/prepare.mjs`, write data/content_packs.json in the voice of content-packs/voice.md,
+   then `node content-packs/finish.mjs`).
 3. Run `bash scripts/publish-data.sh`. Commit only data/ files. Never put keys in the repo.
 4. If any step failed, say which and why in your final message.
 ```
