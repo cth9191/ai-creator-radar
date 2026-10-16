@@ -3,7 +3,7 @@
 | When (UTC) | Where | What |
 | --- | --- | --- |
 | ~12:30 and ~22:30 | Chase's PC (local scheduled job) | X scan writes `data/x_trends.json`, pushes to `main` |
-| 13:00 and 23:00 | Claude cloud scheduled task | `scripts/refresh.sh`, then `scripts/publish-data.sh` |
+| 12:53 and 22:53 | Claude cloud scheduled task | `scripts/refresh.sh`, then `scripts/publish-data.sh` |
 
 GitHub Pages rebuilds on every push to `main`, so the page updates within a minute or two of each push.
 

@@ -2,7 +2,7 @@
 // AI Creator Radar: reads data/*.json (format in docs/DATA.md) and renders the console.
 
 const FILES = ["x_trends", "youtube_coverage", "content_packs", "claude_code_news", "channel_stats", "refresh_log"];
-const REFRESH_HOURS_UTC = [13, 23];
+const REFRESH_TIMES_UTC = [[12, 53], [22, 53]];
 const STALE_HOURS = 14;
 const TOP_GAPS = 5;
 const GAP_MIN = 35;
@@ -73,13 +73,13 @@ function renderSys(d) {
   const now = new Date();
   let next = null;
   for (let day = 0; day < 2 && !next; day++) {
-    for (const h of REFRESH_HOURS_UTC) {
-      const t = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + day, h));
+    for (const [h, m] of REFRESH_TIMES_UTC) {
+      const t = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), now.getUTCDate() + day, h, m));
       if (t > now) { next = t; break; }
     }
   }
   const mins = Math.round((next - now) / 6e4);
-  $("#sys-next").textContent = `${String(next.getUTCHours()).padStart(2, "0")}Z · ${Math.floor(mins / 60)}h${String(mins % 60).padStart(2, "0")}`;
+  $("#sys-next").textContent = `${next.toISOString().slice(11, 16)}Z · ${Math.floor(mins / 60)}h${String(mins % 60).padStart(2, "0")}`;
 
   let anySample = false;
   document.querySelectorAll("[data-sample]").forEach((el) => {
