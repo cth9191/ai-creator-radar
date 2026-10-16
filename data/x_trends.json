@@ -1,213 +1,586 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-16T12:30:00Z",
-  "sample": true,
+  "generated_at": "2026-10-16T19:44:36Z",
+  "sample": false,
   "window_hours": 24,
   "queries": [
-    "ai agent",
-    "open weights",
-    "claude code"
+    "(claude OR anthropic OR \"claude code\" OR opus OR sonnet) min_faves:200 since:2026-10-15 -filter:replies lang:en",
+    "(openai OR chatgpt OR codex OR \"gpt-5\" OR sora OR \"sam altman\") min_faves:200 since:2026-10-15 -filter:replies lang:en",
+    "(gemini OR deepmind OR \"google ai\" OR veo OR grok OR xai) min_faves:200 since:2026-10-15 -filter:replies lang:en",
+    "(deepseek OR qwen OR mistral OR llama OR \"open source model\" OR \"hugging face\" OR kimi OR glm) min_faves:200 since:2026-10-15 -filter:replies lang:en",
+    "(\"ai agent\" OR \"ai agents\" OR llm OR \"vibe coding\" OR cursor OR perplexity OR \"new model\" OR agi) min_faves:200 since:2026-10-15 -filter:replies lang:en"
   ],
+  "heat_formula": "velocity = likes per hour (gain since last scan when available, else likes / post age); heat = 100 * log10(1+velocity)/log10(1+5000), +5% per extra author up to +20%",
+  "sample_note": "metrics cover the top posts X search returns for these queries (min 200 likes), not every post on X",
   "stories": [
     {
-      "id": "sample-agent-browser-launch",
-      "title": "A major lab ships an agent that drives your browser end to end",
-      "summary": "Demo clips of an agent booking travel and filling forms with no supervision are spreading fast.",
+      "id": "cuck-coding-meme",
+      "title": "\"Cuck coding\" meme takes over vibe coding talk",
+      "summary": "A joke renaming vibe coding to \"cuck coding\" (you sit in a chair and watch the agent) went massively viral.",
       "keywords": [
-        "agents",
-        "browser",
-        "computer use"
+        "vibe coding",
+        "meme",
+        "ai agents"
       ],
-      "first_seen": "2026-10-16T03:00:00Z",
-      "heat": 94,
+      "first_seen": "2026-10-15T22:55:07Z",
+      "heat": 100,
       "metrics": {
-        "posts": 2210,
-        "likes": 243100,
-        "reposts": 35360,
-        "views": 19890000,
-        "velocity_per_hour": 160
+        "posts": 2,
+        "likes": 187941,
+        "reposts": 15596,
+        "views": 2900883,
+        "velocity_per_hour": 9254
       },
       "top_posts": [
         {
-          "url": "https://x.com/",
-          "author": "@sample_account",
-          "text": "Sample post about: a major lab ships an agent that drives your browser end to end.",
-          "likes": 13260,
-          "reposts": 2210,
-          "posted_at": "2026-10-16T08:00:00Z"
+          "url": "https://x.com/zamdoteth/status/2110867093201781106",
+          "author": "@zamdoteth",
+          "text": "Saw a guy call it cuck coding instead of vibe coding because you just sit in a chair and watch😭",
+          "likes": 187540,
+          "reposts": 15584,
+          "posted_at": "2026-10-15T22:55:07Z"
+        },
+        {
+          "url": "https://x.com/chetaslua/status/2111157145102397817",
+          "author": "@chetaslua",
+          "text": "WTF 😬 \n\nEnd of vibe coding , welcome to the era of cuck coding , you just have to sit on chair - Fable 5.5\n\nPure python code in blender with eleven labs , and I just provided the x video of launch https://t.co/Onf4VU6DHt",
+          "likes": 401,
+          "reposts": 12,
+          "posted_at": "2026-10-16T18:07:41Z"
         }
       ]
     },
     {
-      "id": "sample-open-weights-coder",
-      "title": "New open-weights coding model tops a public leaderboard",
-      "summary": "A small lab released weights that beat closed models on a coding benchmark; devs are posting side-by-side runs.",
+      "id": "opencode-free-deepseek-glm-flash",
+      "title": "DeepSeek V4.1 Flash and GLM 5.3 Flash go free in OpenCode",
+      "summary": "OpenCode made DeepSeek V4.1 Flash and then GLM 5.3 Flash free to use, and people are comparing them to paid coding models.",
       "keywords": [
-        "open weights",
-        "coding",
-        "benchmark"
+        "opencode",
+        "deepseek v4.1 flash",
+        "glm 5.3 flash",
+        "free models"
       ],
-      "first_seen": "2026-10-16T04:00:00Z",
-      "heat": 88,
+      "first_seen": "2026-10-15T07:35:50Z",
+      "heat": 99,
       "metrics": {
-        "posts": 1630,
-        "likes": 179300,
-        "reposts": 26080,
-        "views": 14670000,
-        "velocity_per_hour": 120
+        "posts": 4,
+        "likes": 43331,
+        "reposts": 3041,
+        "views": 5223589,
+        "velocity_per_hour": 2103
       },
       "top_posts": [
         {
-          "url": "https://x.com/",
-          "author": "@sample_account",
-          "text": "Sample post about: new open-weights coding model tops a public leaderboard.",
-          "likes": 9780,
-          "reposts": 1630,
-          "posted_at": "2026-10-16T08:00:00Z"
+          "url": "https://x.com/opencode/status/2110635747648909472",
+          "author": "@opencode",
+          "text": "DeepSeek V4.1 Flash is now free in OpenCode",
+          "likes": 25366,
+          "reposts": 1805,
+          "posted_at": "2026-10-15T07:35:50Z"
+        },
+        {
+          "url": "https://x.com/opencode/status/2110986357539754114",
+          "author": "@opencode",
+          "text": "GLM 5.3 Flash is now free in OpenCode",
+          "likes": 16698,
+          "reposts": 1208,
+          "posted_at": "2026-10-16T06:49:02Z"
+        },
+        {
+          "url": "https://x.com/MiaAI_lab/status/2110987732436803781",
+          "author": "@MiaAI_lab",
+          "text": "So basically GLM 5.3 Flash beats Muse Spark Open, while being MUCH smaller?\n\nWhat's the point?? https://t.co/fV64Q39BBN",
+          "likes": 762,
+          "reposts": 21,
+          "posted_at": "2026-10-16T06:54:30Z"
         }
       ]
     },
     {
-      "id": "sample-video-model-realtime",
-      "title": "Real-time video generation demo goes viral",
-      "summary": "A live demo generates video from a webcam feed in real time.",
+      "id": "anthropic-ipo-delay-debate",
+      "title": "Anthropic IPO: calls to delay over safety, valuation debate",
+      "summary": "Reports say Anthropic faces calls to delay its IPO over AI safety concerns, while investors debate a $1.5T versus $2T valuation and it lands a BB+ credit rating.",
       "keywords": [
-        "video",
-        "realtime",
-        "generation"
+        "anthropic ipo",
+        "valuation",
+        "ai safety",
+        "credit rating"
       ],
-      "first_seen": "2026-10-16T05:00:00Z",
+      "first_seen": "2026-10-15T21:03:02Z",
+      "heat": 90,
+      "metrics": {
+        "posts": 5,
+        "likes": 2761,
+        "reposts": 211,
+        "views": 647748,
+        "velocity_per_hour": 602
+      },
+      "top_posts": [
+        {
+          "url": "https://x.com/benjamincowen/status/2111135155847123207",
+          "author": "@benjamincowen",
+          "text": "Translation: Market conditions are not great right now, so let's delay our IPO to extract as much out of retail as possible later on. But let's blame it on safety concerns.",
+          "likes": 1156,
+          "reposts": 53,
+          "posted_at": "2026-10-16T16:40:18Z"
+        },
+        {
+          "url": "https://x.com/DeItaone/status/2111098133014839624",
+          "author": "@DeItaone",
+          "text": "ANTHROPIC FACES CALL TO DELAY MASSIVE IPO OVER AI SAFETY CONCERNS\n\nAnthropic has opened discussions with NYC Comptroller Mark Levine after he urged the company to postpone its planned IPO until it addresses AI safety and governance risks.\n\nLevine oversees public pension funds hol",
+          "likes": 769,
+          "reposts": 99,
+          "posted_at": "2026-10-16T14:13:11Z"
+        },
+        {
+          "url": "https://x.com/litcapital/status/2110867025296040119",
+          "author": "@litcapital",
+          "text": "Anthropic’s IPO underwriters trying to explain the valuation to investors https://t.co/IB094a2qW2",
+          "likes": 424,
+          "reposts": 21,
+          "posted_at": "2026-10-15T22:54:51Z"
+        }
+      ]
+    },
+    {
+      "id": "nvidia-app-ai-agent-control-default",
+      "title": "NVIDIA app quietly enables AI agent control by default",
+      "summary": "An NVIDIA app auto-update turned on a setting that lets AI agents control the app with broad permissions, raising security worries.",
+      "keywords": [
+        "nvidia app",
+        "ai agents",
+        "security",
+        "default setting"
+      ],
+      "first_seen": "2026-10-15T20:32:07Z",
+      "heat": 82,
+      "metrics": {
+        "posts": 1,
+        "likes": 26072,
+        "reposts": 4043,
+        "views": 1329921,
+        "velocity_per_hour": 1123
+      },
+      "top_posts": [
+        {
+          "url": "https://x.com/AgustinCordes/status/2110831106782335303",
+          "author": "@AgustinCordes",
+          "text": "PSA: Can confirm that the NVIDIA app is automatically updating and has *enabled by default* a setting which allows AI agents to control the app with very permissive rights.\n\nBesides the obnoxious privacy invasion and lame AI features, it's a high security risk you may not want. h",
+          "likes": 26072,
+          "reposts": 4043,
+          "posted_at": "2026-10-15T20:32:07Z"
+        }
+      ]
+    },
+    {
+      "id": "interpretability-untangled-networks",
+      "title": "Interpretability result: neural networks are not tangled knots",
+      "summary": "A new interpretability result is being called one of the most important in AI, suggesting network internals are far more structured than assumed.",
+      "keywords": [
+        "interpretability",
+        "neural networks",
+        "research"
+      ],
+      "first_seen": "2026-10-15T15:40:54Z",
       "heat": 81,
       "metrics": {
-        "posts": 1290,
-        "likes": 141900,
-        "reposts": 20640,
-        "views": 11610000,
-        "velocity_per_hour": 100
+        "posts": 2,
+        "likes": 19850,
+        "reposts": 2441,
+        "views": 3432270,
+        "velocity_per_hour": 712
       },
       "top_posts": [
         {
-          "url": "https://x.com/",
-          "author": "@sample_account",
-          "text": "Sample post about: real-time video generation demo goes viral.",
-          "likes": 7740,
-          "reposts": 1290,
-          "posted_at": "2026-10-16T08:00:00Z"
+          "url": "https://x.com/nickcammarata/status/2110757819427574056",
+          "author": "@nickcammarata",
+          "text": "interpretability might be the most important scientific problem in the world right now, as I don't think we can solve alignment if we don't know what we're building. I think I have good news about it. I co-authored early work in mechanistic interpretability at OpenAI and came awa",
+          "likes": 17881,
+          "reposts": 2337,
+          "posted_at": "2026-10-15T15:40:54Z"
+        },
+        {
+          "url": "https://x.com/deedydas/status/2110785912074277221",
+          "author": "@deedydas",
+          "text": "This is one of the most important results in AI, period.\n\nTLDR: neural networks are not tangled knots (polysemanticity is wrong). You can study their own neurons directly, without first \"unfolding\" them with a second model. 90% of neurons in Qwen-32B have one job.\n\nNick Cammarata",
+          "likes": 1969,
+          "reposts": 104,
+          "posted_at": "2026-10-15T17:32:32Z"
         }
       ]
     },
     {
-      "id": "sample-claude-code-plugins",
-      "title": "Developers share Claude Code plugin setups",
-      "summary": "Threads of custom Claude Code plugins and hooks are trending among developers.",
+      "id": "claude-slides",
+      "title": "Boris Cherny: make slide decks with Claude Slides",
+      "summary": "Claude Code's Boris Cherny is pushing Claude Slides as his way to build slide decks.",
+      "keywords": [
+        "claude slides",
+        "claude artifacts",
+        "anthropic"
+      ],
+      "first_seen": "2026-10-16T18:13:42Z",
+      "heat": 78,
+      "metrics": {
+        "posts": 1,
+        "likes": 1156,
+        "reposts": 27,
+        "views": 66326,
+        "velocity_per_hour": 763
+      },
+      "top_posts": [
+        {
+          "url": "https://x.com/bcherny/status/2111158659971699136",
+          "author": "@bcherny",
+          "text": "Don't sleep on Claude Slides. This is how I make slide decks now -- no more googling \"iphone frame svg\" like the old days\n\nTry it: https://t.co/cAWdwarzgp https://t.co/POdqFL9oIP",
+          "likes": 1156,
+          "reposts": 27,
+          "posted_at": "2026-10-16T18:13:42Z"
+        }
+      ]
+    },
+    {
+      "id": "rogue-ai-agents-india-breach",
+      "title": "Rogue AI agents broke into Indian companies' live systems",
+      "summary": "AI agents under evaluation reportedly accessed live systems and confidential records at Indian companies.",
+      "keywords": [
+        "ai agents",
+        "security breach",
+        "india"
+      ],
+      "first_seen": "2026-10-16T13:58:18Z",
+      "heat": 73,
+      "metrics": {
+        "posts": 2,
+        "likes": 2064,
+        "reposts": 242,
+        "views": 121714,
+        "velocity_per_hour": 378
+      },
+      "top_posts": [
+        {
+          "url": "https://x.com/Polymarket/status/2111094387161919596",
+          "author": "@Polymarket",
+          "text": "BREAKING: Rogue AI agents broke into Indian companies' live systems &amp; accessed confidential records without detection, India's cybersecurity agency reveals.",
+          "likes": 1504,
+          "reposts": 202,
+          "posted_at": "2026-10-16T13:58:18Z"
+        },
+        {
+          "url": "https://x.com/MTSlive/status/2111109487549718821",
+          "author": "@MTSlive",
+          "text": "SITUATION DETECTED: AI agents under evaluation have gained access to personal, business, and confidential information from multiple organizations in India. The incidents went undetected, and have been discovered through voluntary disclosures from unnamed AI model providers.",
+          "likes": 560,
+          "reposts": 40,
+          "posted_at": "2026-10-16T14:58:19Z"
+        }
+      ]
+    },
+    {
+      "id": "gemini-4-argon-showcase",
+      "title": "Gemini 4 Argon showcases: 3D printing, pixel art, Google engineering",
+      "summary": "Google and users are showing what Gemini 4 Argon can do, from 3D-printed accessories to animated pixel art and internal engineering work.",
+      "keywords": [
+        "gemini 4 argon",
+        "google",
+        "gemini app"
+      ],
+      "first_seen": "2026-10-15T09:46:23Z",
+      "heat": 73,
+      "metrics": {
+        "posts": 4,
+        "likes": 6661,
+        "reposts": 457,
+        "views": 1855254,
+        "velocity_per_hour": 225
+      },
+      "top_posts": [
+        {
+          "url": "https://x.com/GeminiApp/status/2110772859580895678",
+          "author": "@GeminiApp",
+          "text": "Plus up your furniture with 3D-printed accessories using Gemini 4 Argon.\n\nUpload a pic with rough measurements, and use Canvas in Gemini to build an interactive 3D CAD studio where you can explore styles, tweak live sliders, and export printable STLs to upgrade your space.",
+          "likes": 2603,
+          "reposts": 218,
+          "posted_at": "2026-10-15T16:40:40Z"
+        },
+        {
+          "url": "https://x.com/driftauz/status/2110673495860691166",
+          "author": "@driftauz",
+          "text": "generated this using Gemini argon 4 https://t.co/eK1W3ohkQi",
+          "likes": 2056,
+          "reposts": 112,
+          "posted_at": "2026-10-15T10:05:50Z"
+        },
+        {
+          "url": "https://x.com/Google/status/2110746360047603834",
+          "author": "@Google",
+          "text": "Teams across Google put Gemini 4 Argon to work on our hardest engineering problems.\n\nHere’s what happened 🧵 https://t.co/2YutrABI8Y",
+          "likes": 1732,
+          "reposts": 116,
+          "posted_at": "2026-10-15T14:55:22Z"
+        }
+      ]
+    },
+    {
+      "id": "gemini-argon-agents-beat-minecraft",
+      "title": "Four Gemini 4 Argon agents beat Minecraft with no human help",
+      "summary": "Google DeepMind had four Gemini 4 Argon agents cooperate over chat and code to defeat the Ender Dragon from scratch in 27 hours.",
+      "keywords": [
+        "gemini 4 argon",
+        "deepmind",
+        "minecraft",
+        "multi-agent"
+      ],
+      "first_seen": "2026-10-16T09:16:13Z",
+      "heat": 72,
+      "metrics": {
+        "posts": 2,
+        "likes": 1358,
+        "reposts": 117,
+        "views": 149418,
+        "velocity_per_hour": 332
+      },
+      "top_posts": [
+        {
+          "url": "https://x.com/GoogleDeepMind/status/2111127991401247033",
+          "author": "@GoogleDeepMind",
+          "text": "Four Gemini 4 Argon agents beat Minecraft from scratch in 27 hours.\n\nOperating in a sandbox using only code and text, they wrote 2,783 programs, divided up jobs over chat, shared notes, and debugged errors together - all with no human help ↓\nhttps://t.co/uyIhDOQXGT",
+          "likes": 1087,
+          "reposts": 84,
+          "posted_at": "2026-10-16T16:11:50Z"
+        },
+        {
+          "url": "https://x.com/maxencefaldor/status/2111023397106770026",
+          "author": "@maxencefaldor",
+          "text": "Four Gemini 4 Argon agents, one shared Minecraft world, one goal: defeat the Ender Dragon. 27 hours and 2,783 self-written programs later, the dragon fell. https://t.co/Cx7Djg1VTx",
+          "likes": 271,
+          "reposts": 33,
+          "posted_at": "2026-10-16T09:16:13Z"
+        }
+      ]
+    },
+    {
+      "id": "anthropic-outside-safety-evaluators",
+      "title": "Anthropic gives outside evaluators like METR frontier model access",
+      "summary": "Anthropic committed to independent assessment of its safety practices, and METR now has employee-level access to its frontier models.",
+      "keywords": [
+        "anthropic",
+        "metr",
+        "safety evaluation",
+        "frontier models"
+      ],
+      "first_seen": "2026-10-15T17:27:34Z",
+      "heat": 70,
+      "metrics": {
+        "posts": 3,
+        "likes": 5848,
+        "reposts": 341,
+        "views": 568410,
+        "velocity_per_hour": 223
+      },
+      "top_posts": [
+        {
+          "url": "https://x.com/AnthropicAI/status/2110784662071398807",
+          "author": "@AnthropicAI",
+          "text": "We’ve committed to having evaluators assess our safety practices. We're in discussions with multiple organizations, and have now given employee-like access to a team from @METR_Evals.\n\nIn this post, we describe how we work with third-party evaluators: https://t.co/8CLQnMVg4X",
+          "likes": 3627,
+          "reposts": 245,
+          "posted_at": "2026-10-15T17:27:34Z"
+        },
+        {
+          "url": "https://x.com/AndrewCurran_/status/2110786916966887802",
+          "author": "@AndrewCurran_",
+          "text": "METR now has employee level access to Anthropic's frontier models. Also, this is exactly the type of blog post you make just before releasing a shockingly powerful and capable new model, I'm just saying. https://t.co/QG8wlFAGXW",
+          "likes": 1682,
+          "reposts": 89,
+          "posted_at": "2026-10-15T17:36:32Z"
+        },
+        {
+          "url": "https://x.com/MTSlive/status/2110786338861830150",
+          "author": "@MTSlive",
+          "text": "SITUATION DETECTED: Anthropic has started giving employee-like access to their frontier models to a team from METR.",
+          "likes": 539,
+          "reposts": 7,
+          "posted_at": "2026-10-15T17:34:14Z"
+        }
+      ]
+    },
+    {
+      "id": "openai-employee-espionage-arrest",
+      "title": "OpenAI employee arrested over hidden recording device",
+      "summary": "An OpenAI employee was arrested after allegedly hiding a recorder in a confidential meeting room and taking documents; reports also describe OpenAI's anti-honeypot staff training.",
+      "keywords": [
+        "openai",
+        "espionage",
+        "arrest",
+        "security"
+      ],
+      "first_seen": "2026-10-15T02:23:59Z",
+      "heat": 68,
+      "metrics": {
+        "posts": 3,
+        "likes": 3039,
+        "reposts": 213,
+        "views": 242373,
+        "velocity_per_hour": 188
+      },
+      "top_posts": [
+        {
+          "url": "https://x.com/Dexerto/status/2111049549317816741",
+          "author": "@Dexerto",
+          "text": "An OpenAI employee has been arrested after allegedly hiding a recording device inside toilet paper\n\nThe device was found plugged into a TV in a room used for confidential meetings https://t.co/xhIVj9qzHp",
+          "likes": 1156,
+          "reposts": 31,
+          "posted_at": "2026-10-16T11:00:08Z"
+        },
+        {
+          "url": "https://x.com/ZackKorman/status/2110747990067667016",
+          "author": "@ZackKorman",
+          "text": "The OpenAI employee who allegedly stole over a hundred confidential documents without OpenAI noticing for months sent the documents to his number *in mainland China*... https://t.co/TdZTSgManO",
+          "likes": 997,
+          "reposts": 132,
+          "posted_at": "2026-10-15T15:01:51Z"
+        },
+        {
+          "url": "https://x.com/AndrewCurran_/status/2110557267208863922",
+          "author": "@AndrewCurran_",
+          "text": "OpenAI does anti-honeypot training. From the article:\n\n'In training sessions, OpenAI has warned employees that outsiders, including competitors and state-sponsored actors, could try to get access to company information. Company leaders have said that could take the form of people",
+          "likes": 886,
+          "reposts": 50,
+          "posted_at": "2026-10-15T02:23:59Z"
+        }
+      ]
+    },
+    {
+      "id": "accenture-caps-claude-spend",
+      "title": "Accenture caps employee Claude use at $29 a month",
+      "summary": "Accenture told staff it will only fund $29 per month of Claude use per employee.",
+      "keywords": [
+        "accenture",
+        "claude",
+        "enterprise ai spend"
+      ],
+      "first_seen": "2026-10-15T16:48:07Z",
+      "heat": 66,
+      "metrics": {
+        "posts": 1,
+        "likes": 7621,
+        "reposts": 1009,
+        "views": 2174994,
+        "velocity_per_hour": 283
+      },
+      "top_posts": [
+        {
+          "url": "https://x.com/josephfcox/status/2110774735252435435",
+          "author": "@josephfcox",
+          "text": "New: Accenture has told employees it will only fund $29 per month of Claude use. Meaning that employees who often spend as much as $1,000 a month are now scrambling to find ways to keep access to the tool. A sign of the continuing crack down of AI https://t.co/Z2xswuSW5x",
+          "likes": 7621,
+          "reposts": 1009,
+          "posted_at": "2026-10-15T16:48:07Z"
+        }
+      ]
+    },
+    {
+      "id": "claude-code-review-ga",
+      "title": "Claude Code Review is now generally available",
+      "summary": "Code Review is GA for Claude Team and Enterprise plans, with faster reviews.",
       "keywords": [
         "claude code",
-        "plugins",
-        "hooks"
+        "code review",
+        "anthropic",
+        "enterprise"
       ],
-      "first_seen": "2026-10-16T06:00:00Z",
-      "heat": 76,
+      "first_seen": "2026-10-15T22:51:37Z",
+      "heat": 66,
       "metrics": {
-        "posts": 980,
-        "likes": 107800,
-        "reposts": 15680,
-        "views": 8820000,
-        "velocity_per_hour": 80
+        "posts": 1,
+        "likes": 5719,
+        "reposts": 265,
+        "views": 569538,
+        "velocity_per_hour": 274
       },
       "top_posts": [
         {
-          "url": "https://x.com/",
-          "author": "@sample_account",
-          "text": "Sample post about: developers share claude code plugin setups.",
-          "likes": 5880,
-          "reposts": 980,
-          "posted_at": "2026-10-16T08:00:00Z"
+          "url": "https://x.com/ClaudeDevs/status/2110866210573386065",
+          "author": "@ClaudeDevs",
+          "text": "Code Review is now generally available for Claude Team and Enterprise plans. \n\nReviews are now faster, catch more of the bugs that matter, and admins can pick from Quick, Standard, or Deep review levels for each repo. https://t.co/RO4tDC4U1U",
+          "likes": 5719,
+          "reposts": 265,
+          "posted_at": "2026-10-15T22:51:37Z"
         }
       ]
     },
     {
-      "id": "sample-ai-glasses-teardown",
-      "title": "AI glasses teardown reveals on-device model",
-      "summary": "A teardown thread shows the glasses run a small model locally.",
+      "id": "anthropic-distillation-revenue",
+      "title": "Anthropic says distillation was 5 to 7% of revenue",
+      "summary": "Anthropic reportedly told investors that distillation by other labs accounted for 5 to 7% of revenue before it blocked it, fueling debate about Chinese and Meta models.",
       "keywords": [
-        "hardware",
-        "on-device"
+        "anthropic",
+        "distillation",
+        "chinese models",
+        "meta"
       ],
-      "first_seen": "2026-10-16T07:00:00Z",
-      "heat": 63,
+      "first_seen": "2026-10-15T13:16:39Z",
+      "heat": 65,
       "metrics": {
-        "posts": 640,
-        "likes": 70400,
-        "reposts": 10240,
-        "views": 5760000,
-        "velocity_per_hour": 60
+        "posts": 3,
+        "likes": 3793,
+        "reposts": 101,
+        "views": 352056,
+        "velocity_per_hour": 150
       },
       "top_posts": [
         {
-          "url": "https://x.com/",
-          "author": "@sample_account",
-          "text": "Sample post about: ai glasses teardown reveals on-device model.",
-          "likes": 3840,
-          "reposts": 640,
-          "posted_at": "2026-10-16T08:00:00Z"
+          "url": "https://x.com/elshayib_/status/2110799095015084422",
+          "author": "@elshayib_",
+          "text": "I've got a theory \n\nSince Anthropic started blocking distillation and patched most exploits Chinese models really slowed down it might be the reason why we haven't seen new releases since GLM 5.3 and Kimi K3.",
+          "likes": 2700,
+          "reposts": 43,
+          "posted_at": "2026-10-15T18:24:55Z"
+        },
+        {
+          "url": "https://x.com/simonw/status/2110721515130089787",
+          "author": "@simonw",
+          "text": "\"Anthropic told investors on Wednesday distillation accounted for 5 per cent to 7 per cent of revenue\"\n\nIf true, and Q2 revenue was $11.5B, then that's more than half a billion dollars spent by other labs to distill Anthropic's models!\nhttps://t.co/szd2oJxtrv https://t.co/MfcztRw",
+          "likes": 760,
+          "reposts": 56,
+          "posted_at": "2026-10-15T13:16:39Z"
+        },
+        {
+          "url": "https://x.com/teortaxesTex/status/2110911162057404664",
+          "author": "@teortaxesTex",
+          "text": "I now suspect that Meta's great jump between Spark 1.2 and 1.3 is partially due to distillation from OpenAI, which is why they're not willing to open source an 1.3 model (revealing full CoTs) and fed us this slop instead, despite having moved on to Wonder/WFull.",
+          "likes": 333,
+          "reposts": 2,
+          "posted_at": "2026-10-16T01:50:14Z"
         }
       ]
     },
     {
-      "id": "sample-voice-clone-policy",
-      "title": "Platform changes its voice cloning policy",
-      "summary": "Creators debate a new rule on AI voice clones in uploads.",
+      "id": "mistral-europe-frontier-ai",
+      "title": "Mistral's Arthur Mensch: Europe must not leave frontier AI to US and China",
+      "summary": "Mistral's CEO pushes back on the idea that Europe should give up on frontier AI.",
       "keywords": [
-        "policy",
-        "voice",
-        "creators"
+        "mistral",
+        "europe",
+        "frontier ai"
       ],
-      "first_seen": "2026-10-16T08:00:00Z",
-      "heat": 57,
+      "first_seen": "2026-10-16T07:05:28Z",
+      "heat": 64,
       "metrics": {
-        "posts": 520,
-        "likes": 57200,
-        "reposts": 8320,
-        "views": 4680000,
-        "velocity_per_hour": 40
+        "posts": 1,
+        "likes": 3031,
+        "reposts": 607,
+        "views": 225946,
+        "velocity_per_hour": 240
       },
       "top_posts": [
         {
-          "url": "https://x.com/",
-          "author": "@sample_account",
-          "text": "Sample post about: platform changes its voice cloning policy.",
-          "likes": 3120,
-          "reposts": 520,
-          "posted_at": "2026-10-16T08:00:00Z"
-        }
-      ]
-    },
-    {
-      "id": "sample-gpu-price-drop",
-      "title": "Cloud GPU prices drop sharply",
-      "summary": "Several providers cut H-class GPU prices; indie builders celebrate.",
-      "keywords": [
-        "gpu",
-        "pricing",
-        "cloud"
-      ],
-      "first_seen": "2026-10-16T03:00:00Z",
-      "heat": 49,
-      "metrics": {
-        "posts": 410,
-        "likes": 45100,
-        "reposts": 6560,
-        "views": 3690000,
-        "velocity_per_hour": 40
-      },
-      "top_posts": [
-        {
-          "url": "https://x.com/",
-          "author": "@sample_account",
-          "text": "Sample post about: cloud gpu prices drop sharply.",
-          "likes": 2460,
-          "reposts": 410,
-          "posted_at": "2026-10-16T08:00:00Z"
+          "url": "https://x.com/arthurmensch/status/2110990492930314712",
+          "author": "@arthurmensch",
+          "text": "Should Europe leave frontier AI to the Americans and the Chinese?\n\nThe idea has gained ground in Europe. It is a fundamental mistake.\nBuild or surrender: for now, the choice is still ours.\n\nFull article below. https://t.co/v1biuiXoYe",
+          "likes": 3031,
+          "reposts": 607,
+          "posted_at": "2026-10-16T07:05:28Z"
         }
       ]
     }
