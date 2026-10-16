@@ -1,0 +1,48 @@
+{
+  "_note": "Made-up sample gaps for building and testing the content pack step. Replaced by data/gaps.json once the X and YouTube steps publish real data.",
+  "generated_at": "2026-10-16T12:00:00Z",
+  "gaps": [
+    {
+      "id": "sample-open-weights-agent-model",
+      "title": "Lab drops an open-weights coding agent model that runs on a single GPU",
+      "summary": "A new open-weights model tuned for agentic coding is posting strong benchmark numbers and people are running it locally on one consumer GPU. Devs on X are sharing side-by-side runs against hosted models.",
+      "x": { "post_count": 412, "engagement": 98500, "velocity": "rising",
+             "top_posts": [
+               { "text": "ran it on my 4090 for an hour of real repo work. not hosted-model good, but way closer than I expected", "likes": 5400 },
+               { "text": "the license is the real story here, commercial use allowed", "likes": 3100 }
+             ] },
+      "youtube": { "video_count": 1, "top_video_views": 2300 },
+      "gap_score": 0.91
+    },
+    {
+      "id": "sample-browser-agent-api",
+      "title": "Major AI lab opens its browser-agent API to all developers",
+      "summary": "The browser-agent API that was waitlist-only is now generally available, with lower pricing and a new session replay feature. Builders are posting first automations.",
+      "x": { "post_count": 288, "engagement": 61200, "velocity": "rising",
+             "top_posts": [
+               { "text": "session replay is the killer feature. you can finally see where the agent got lost", "likes": 2900 }
+             ] },
+      "youtube": { "video_count": 3, "top_video_views": 8100 },
+      "gap_score": 0.77
+    },
+    {
+      "id": "sample-voice-cloning-rules",
+      "title": "New platform rules for AI voice clones in creator videos",
+      "summary": "A big video platform announced disclosure labels and consent checks for AI voice clones, rolling out next month. Creators are debating what counts as a clone.",
+      "x": { "post_count": 190, "engagement": 40300, "velocity": "steady",
+             "top_posts": [
+               { "text": "if you use AI voiceover on your channel read this before next month", "likes": 1800 }
+             ] },
+      "youtube": { "video_count": 0, "top_video_views": 0 },
+      "gap_score": 0.72
+    },
+    {
+      "id": "sample-minor-benchmark",
+      "title": "Small benchmark update for long-context retrieval",
+      "summary": "A benchmark maintainer added harder long-context tasks. Niche discussion.",
+      "x": { "post_count": 40, "engagement": 3100, "velocity": "flat", "top_posts": [] },
+      "youtube": { "video_count": 6, "top_video_views": 15000 },
+      "gap_score": 0.2
+    }
+  ]
+}

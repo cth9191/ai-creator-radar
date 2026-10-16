@@ -1,0 +1,14 @@
+{
+  "name": "ai-creator-radar-content-packs",
+  "private": true,
+  "type": "module",
+  "description": "Turns each top X-vs-YouTube gap into a content pack with the Claude API.",
+  "scripts": {
+    "generate": "node generate.mjs",
+    "dry-run": "node generate.mjs --dry-run --output sample/content_packs.dry-run.json",
+    "test": "node --test"
+  },
+  "dependencies": {
+    "@anthropic-ai/sdk": "^0.135.0"
+  }
+}
