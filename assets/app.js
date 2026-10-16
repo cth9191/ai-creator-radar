@@ -297,10 +297,10 @@ function renderNews(d) {
   const n = d.claude_code_news, root = $("#news");
   const items = n?.items || [];
   if (!items.length) { root.innerHTML = `<p class="empty">No Claude Code news yet.</p>`; return; }
-  root.innerHTML = `<ol class="news">${items.map((it) => `<li>
+  root.innerHTML = `<ol class="news">${items.slice(0, 5).map((it, i) => `<li>
     <div class="news-head"><span class="ver">${link(it.url, "v" + esc(String(it.version).replace(/^v/, "")))}</span><span class="news-date">${esc(it.date || "")}</span></div>
     <div class="news-title">${esc(it.title)}</div>
-    ${(it.highlights || []).length ? `<ul>${it.highlights.slice(0, 5).map((h) => `<li>${esc(typeof h === "string" ? h : h.text)}</li>`).join("")}</ul>` : ""}
+    ${(it.highlights || []).length ? `<ul>${it.highlights.slice(0, i === 0 ? 5 : 2).map((h) => `<li>${esc(typeof h === "string" ? h : h.text)}</li>`).join("")}</ul>` : ""}
     ${it.creator_angle ? `<div class="angle">${esc(it.creator_angle)}</div>` : ""}
   </li>`).join("")}</ol>`;
 }
