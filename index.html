@@ -1,1 +1,99 @@
-<!doctype html><meta charset="utf-8"><title>AI Creator Radar</title><p>Dashboard coming soon.</p>
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Creator Radar</title>
+<meta name="description" content="AI stories taking off on X that YouTube hasn't covered yet, with ready-to-make content for each gap.">
+<meta name="theme-color" content="#efeee9">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Ccircle cx='16' cy='16' r='14' fill='none' stroke='%2316181a' stroke-width='2'/%3E%3Ccircle cx='16' cy='16' r='7' fill='none' stroke='%2316181a' stroke-width='2'/%3E%3Ccircle cx='22' cy='10' r='3' fill='%23ff5a1f'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=IBM+Plex+Sans+Condensed:wght@500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+<header class="topbar">
+  <div class="brand">
+    <span class="brand-mark" aria-hidden="true"></span>
+    <div>
+      <div class="brand-name">AI CREATOR RADAR</div>
+      <div class="brand-sub">X → YOUTUBE GAP CONSOLE · CHASE AI</div>
+    </div>
+  </div>
+  <div class="sys" id="sys">
+    <div class="sys-item"><span class="lbl">UTC</span><span id="clock">--:--:--</span></div>
+    <div class="sys-item"><span class="lbl">X SCAN</span><span id="sys-x">…</span></div>
+    <div class="sys-item"><span class="lbl">CLOUD</span><span id="sys-cloud">…</span></div>
+    <div class="sys-item"><span class="lbl">NEXT</span><span id="sys-next">…</span></div>
+  </div>
+</header>
+
+<div class="banner" id="sample-banner" hidden>SAMPLE DATA · some panels are showing placeholder data until the first real refresh lands</div>
+
+<main>
+  <section class="panel hero" aria-labelledby="gaps-h">
+    <div class="panel-head">
+      <h2 id="gaps-h"><span class="idx">01</span> GAPS <span class="hint">big on X, thin on YouTube</span></h2>
+      <span class="tag" data-sample="youtube_coverage">SAMPLE</span>
+    </div>
+    <div class="hero-grid">
+      <div class="scope">
+        <svg id="scope" viewBox="0 0 400 300" role="img" aria-label="X heat versus YouTube coverage for each story"></svg>
+        <div class="scope-legend"><span><i class="dot hot"></i>gap</span><span><i class="dot"></i>covered</span></div>
+      </div>
+      <ol class="gaps" id="gaps"></ol>
+    </div>
+  </section>
+
+  <section class="panel" id="pack-panel" aria-labelledby="pack-h">
+    <div class="panel-head">
+      <h2 id="pack-h"><span class="idx">02</span> CONTENT PACK <span class="hint" id="pack-for"></span></h2>
+      <span class="tag" data-sample="content_packs">SAMPLE</span>
+    </div>
+    <div id="pack"></div>
+  </section>
+
+  <section class="panel" aria-labelledby="x-h">
+    <div class="panel-head">
+      <h2 id="x-h"><span class="idx">03</span> ON X NOW <span class="hint" id="x-window"></span></h2>
+      <span class="tag" data-sample="x_trends">SAMPLE</span>
+    </div>
+    <div class="table-wrap"><table class="trends" id="trends"></table></div>
+  </section>
+
+  <div class="split">
+    <section class="panel" aria-labelledby="ch-h">
+      <div class="panel-head">
+        <h2 id="ch-h"><span class="idx">04</span> CHANNEL</h2>
+        <span class="tag" data-sample="channel_stats">SAMPLE</span>
+      </div>
+      <div id="channel"></div>
+    </section>
+
+    <section class="panel" aria-labelledby="cc-h">
+      <div class="panel-head">
+        <h2 id="cc-h"><span class="idx">05</span> CLAUDE CODE</h2>
+        <span class="tag" data-sample="claude_code_news">SAMPLE</span>
+      </div>
+      <div id="news"></div>
+    </section>
+  </div>
+
+  <section class="panel" aria-labelledby="log-h">
+    <div class="panel-head">
+      <h2 id="log-h"><span class="idx">06</span> REFRESH LOG</h2>
+      <span class="tag" data-sample="refresh_log">SAMPLE</span>
+    </div>
+    <ol class="log" id="log"></ol>
+  </section>
+</main>
+
+<footer class="foot">
+  <span>Refreshes twice daily · 13:00 &amp; 23:00 UTC</span>
+  <a href="https://github.com/cth9191/ai-creator-radar">source</a>
+</footer>
+
+<script src="assets/app.js" defer></script>
+</body>
+</html>
