@@ -15,16 +15,16 @@ So the YouTube step has to run inside a Claude cloud session in that environment
 task that starts a fresh session there twice a day is the simplest way to do it. A fresh session per
 run means no state carries over except what is in the repo.
 
-If `ANTHROPIC_API_KEY` is not set in that environment, the content packs step is skipped by the
-script and the session writes the packs itself (the session is Claude), following
-`content-packs/voice.md` and the `content_packs.json` format in `docs/DATA.md`.
+Content packs need no API key: the scheduled session is Claude, so after `scripts/refresh.sh` it
+writes `data/content_packs.json` itself, following `content-packs/voice.md` and the
+`content_packs.json` format in `docs/DATA.md`. The only secret involved is the YouTube key.
 
 ## The scheduled task's prompt
 
 ```
 AI Creator Radar cloud refresh. In the cth9191/ai-creator-radar repo:
 1. Run `bash scripts/refresh.sh` and read its output.
-2. If it printed "content_packs SKIPPED", write data/content_packs.json yourself: take the top 5
+2. It always prints "content_packs SKIPPED": write data/content_packs.json yourself: take the top 5
    stories by gap_score from data/youtube_coverage.json joined to data/x_trends.json (skip if either
    is sample data), and write one pack each in the format in docs/DATA.md, in the voice of
    content-packs/voice.md. Keep packs whose story is unchanged. Prepend a refresh_log entry
