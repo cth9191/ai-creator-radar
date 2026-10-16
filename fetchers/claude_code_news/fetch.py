@@ -6,12 +6,16 @@ and the npm registry's publish times, then writes a summary of the latest
 releases as JSON for the dashboard. Standard library only, no API keys.
 
 Usage:
-    python3 fetchers/claude_code_news/fetch.py [--out data/claude_code_news.json] [--releases 8]
+    python3 fetchers/claude_code_news/fetch.py [--out data/claude_code_news.json] [--log data/refresh_log.json]
+
+Output format: docs/DATA.md, section claude_code_news.json.
 """
 import argparse
 import json
+import os
 import re
 import sys
+import time
 import urllib.request
 from datetime import datetime, timezone
 
@@ -104,74 +108,120 @@ def summarize(rel):
     return counts, (", ".join(parts) if parts else f"{len(rel['items'])} changes")
 
 
+def title(counts, summary):
+    """Short release headline, e.g. "8 new features, 6 improvements, 37 fixes"."""
+    parts = []
+    for key, one, many in (("added", "new feature", "new features"),
+                           ("improved", "improvement", "improvements"),
+                           ("changed", "change", "changes"),
+                           ("fixed", "fix", "fixes")):
+        n = counts[key] + (counts["removed"] if key == "changed" else 0)
+        if n:
+            parts.append(f"{n} {one if n == 1 else many}")
+    return ", ".join(parts) or summary
+
+
+def plain(text):
+    """One line of plain text for the page: no Markdown backticks."""
+    return " ".join(text.replace("`", "").split())
+
+
+def now_iso():
+    return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+
+
 def build(max_releases):
-    md = fetch(CHANGELOG_URL)
-    releases = parse_changelog(md)
+    """Return (news, partial_error) in the docs/DATA.md claude_code_news format."""
+    releases = parse_changelog(fetch(CHANGELOG_URL))
     if not releases:
         raise RuntimeError("changelog had no '## <version>' sections")
 
-    times, dist_tags = {}, {}
-    npm_error = None
+    times, dist_tags, partial = {}, {}, None
     try:
         npm = json.loads(fetch(NPM_URL))
         times, dist_tags = npm.get("time", {}), npm.get("dist-tags", {})
     except Exception as e:  # dates are nice to have; the changelog is the source of truth
-        npm_error = str(e)
+        partial = f"npm publish dates unavailable: {e}"
 
-    out_releases = []
+    items = []
     for rel in releases[:max_releases]:
         counts, summary = summarize(rel)
         v = rel["version"]
-        out_releases.append({
+        highlights = [plain(f"{h['area']}: {h['text']}" if h["area"] else h["text"]) for h in pick_highlights(rel["items"])]
+        released_at = times.get(v)
+        items.append({
             "version": v,
-            "released_at": times.get(v),
-            "url": NPM_PAGE.format(version=v) if v in times else CHANGELOG_PAGE,
+            "date": released_at[:10] if released_at else None,
+            "title": title(counts, summary),
+            "highlights": [shorten(h, 140) for h in highlights],
+            "url": NPM_PAGE.format(version=v) if released_at else CHANGELOG_PAGE,
+            # Extras beyond docs/DATA.md; the page ignores fields it doesn't know.
+            "released_at": released_at,
             "summary": summary,
             "counts": counts,
-            "highlights": pick_highlights(rel["items"]),
-            # Everything but bug fixes (counted above), which keep the file small enough for a phone.
-            "notable": [it for it in rel["items"] if it["kind"] != "fixed"],
         })
 
-    latest = out_releases[0]
-    top = latest["highlights"][0]["text"] if latest["highlights"] else latest["summary"]
-    result = {
-        "generated_at": datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z"),
-        "status": "ok" if npm_error is None else "partial",
-        "error": None if npm_error is None else f"npm publish dates unavailable: {npm_error}",
-        "sources": [
-            {"name": "Claude Code CHANGELOG.md", "url": CHANGELOG_PAGE},
-            {"name": "npm @anthropic-ai/claude-code", "url": "https://www.npmjs.com/package/@anthropic-ai/claude-code"},
-        ],
-        "latest_version": latest["version"],
-        "latest_released_at": latest["released_at"],
+    news = {
+        "schema_version": 1,
+        "generated_at": now_iso(),
+        "sample": False,
+        "latest_version": items[0]["version"],
         "dist_tags": {k: dist_tags[k] for k in ("latest", "stable", "next") if k in dist_tags},
-        "headline": f"Claude Code {latest['version']}: {shorten(top, 120)}",
-        "releases": out_releases,
+        "items": items,
     }
-    return result
+    return news, partial
+
+
+def write_json(path, data):
+    os.makedirs(os.path.dirname(path) or ".", exist_ok=True)
+    tmp = path + ".tmp"
+    with open(tmp, "w", encoding="utf-8") as f:
+        json.dump(data, f, indent=2, ensure_ascii=False)
+        f.write("\n")
+    os.replace(tmp, path)
+
+
+def append_log(path, entry, cap=60):
+    try:
+        with open(path, encoding="utf-8") as f:
+            log = json.load(f)
+    except (OSError, ValueError):
+        log = {}
+    if log.get("sample"):
+        log = {}  # drop placeholder entries the first time real data lands
+    entries = [entry] + [e for e in log.get("entries", []) if not e.get("sample")]
+    entries.sort(key=lambda e: e.get("at", ""), reverse=True)
+    write_json(path, {"schema_version": 1, "generated_at": entries[0]["at"], "entries": entries[:cap]})
 
 
 def main(argv=None):
     ap = argparse.ArgumentParser(description=__doc__.splitlines()[0])
     ap.add_argument("--out", default="data/claude_code_news.json")
-    ap.add_argument("--releases", type=int, default=8)
+    ap.add_argument("--log", default="data/refresh_log.json", help="refresh log to append to; '' to skip")
+    ap.add_argument("--releases", type=int, default=8, help="max 8 per docs/DATA.md")
     args = ap.parse_args(argv)
+    started = time.monotonic()
     try:
-        result = build(args.releases)
+        news, partial = build(min(args.releases, 8))
     except Exception as e:
         # Leave the last good file in place so the dashboard keeps showing it.
-        print(f"claude_code_news: failed, keeping previous data: {e}", file=sys.stderr)
-        return 1
-    import os
-    os.makedirs(os.path.dirname(args.out) or ".", exist_ok=True)
-    tmp = args.out + ".tmp"
-    with open(tmp, "w", encoding="utf-8") as f:
-        json.dump(result, f, indent=2, ensure_ascii=False)
-        f.write("\n")
-    os.replace(tmp, args.out)
-    print(f"claude_code_news: wrote {len(result['releases'])} releases, latest {result['latest_version']} -> {args.out}")
-    return 0
+        status, message, code, counts = "error", f"failed, kept previous data: {e}", 1, None
+    else:
+        write_json(args.out, news)
+        latest = news["items"][0]
+        status = "partial" if partial else "ok"
+        message = f"Latest {latest['version']} ({latest['summary']}), {len(news['items'])} releases"
+        if partial:
+            message += f"; {partial}"
+        code, counts = 0, {"releases": len(news["items"])}
+    print(f"claude_code_news: {status}: {message}", file=sys.stderr if code else sys.stdout)
+    if args.log:
+        entry = {"at": now_iso(), "job": "cloud_refresh", "step": "claude_code_news", "status": status,
+                 "duration_s": round(time.monotonic() - started, 1), "message": message}
+        if counts:
+            entry["counts"] = counts
+        append_log(args.log, entry)
+    return code
 
 
 if __name__ == "__main__":

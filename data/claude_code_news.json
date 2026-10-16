@@ -1,30 +1,194 @@
 {
   "schema_version": 1,
-  "generated_at": "2026-10-16T13:00:00Z",
-  "sample": true,
-  "latest_version": "0.0.0-sample",
+  "generated_at": "2026-10-16T19:45:13Z",
+  "sample": false,
+  "latest_version": "2.1.301",
+  "dist_tags": {
+    "latest": "2.1.301",
+    "stable": "2.1.292",
+    "next": "2.1.302"
+  },
   "items": [
     {
-      "version": "0.0.0-sample",
+      "version": "2.1.301",
       "date": "2026-10-15",
-      "title": "Sample release headline",
+      "title": "8 new features, 4 improvements, 2 changes, 37 fixes",
       "highlights": [
-        "Sample highlight one",
-        "Sample highlight two",
-        "Sample highlight three"
+        "Added CLAUDE_CODE_RETRY_WATCHDOG_MAX_USAGE_LIMIT_WAIT_MS so unattended retry mode (CLAUDE_CODE_RETRY_WATCHDOG) ends a request at a usage…",
+        "Added OpenTelemetry tracing guidance to the claude-api skill, including setting up trace destinations with the ant CLI",
+        "Added the % motion to vim mode: jump to the matching bracket, alone or with d/c/y",
+        "Added rows to a mod's Input: a text field of several lines in the terminal, where Enter submits and Shift+Enter or a backslash before Enter…",
+        "Added classifier_verdict and permission_mode to OpenTelemetry tool_decision events, so auto mode classifier decisions can be told apart…"
       ],
-      "url": "https://github.com/anthropics/claude-code/releases",
-      "creator_angle": "Sample: a feature worth a quick tutorial."
+      "url": "https://www.npmjs.com/package/@anthropic-ai/claude-code/v/2.1.301",
+      "released_at": "2026-10-15T14:34:23.330Z",
+      "summary": "8 added, 4 improved, 2 changed, 37 fixed",
+      "counts": {
+        "added": 8,
+        "improved": 4,
+        "changed": 2,
+        "fixed": 37,
+        "removed": 0,
+        "other": 0
+      }
     },
     {
-      "version": "0.0.-1-sample",
-      "date": "2026-10-11",
-      "title": "Earlier sample release",
+      "version": "2.1.300",
+      "date": "2026-10-14",
+      "title": "12 new features, 4 improvements, 13 changes, 59 fixes",
       "highlights": [
-        "Sample fix",
-        "Sample improvement"
+        "Added virtualText to a mod's prompt decorations: text drawn in the prompt box that never enters the draft or the submitted prompt",
+        "Added cache_creation_5m_tokens and cache_creation_1h_tokens to the OpenTelemetry api_request event, splitting cache writes by lifetime",
+        "Added $.ui.view({ agentId }) for mods: shows an agent's transcript in the main view when you ask, and $.ui.view({}) goes back",
+        "Added a dir prop on a mod's Text for right-to-left text: on Windows and in VS Code's terminal its rows read in that direction and sit flush…",
+        "Added /advisor on Claude Platform on AWS; no advisor runs until you pick one with /advisor, advisorModel or --advisor, and…"
       ],
-      "url": "https://github.com/anthropics/claude-code/releases"
+      "url": "https://www.npmjs.com/package/@anthropic-ai/claude-code/v/2.1.300",
+      "released_at": "2026-10-14T14:27:26.554Z",
+      "summary": "12 added, 4 improved, 12 changed, 59 fixed, 1 removed",
+      "counts": {
+        "added": 12,
+        "improved": 4,
+        "changed": 12,
+        "fixed": 59,
+        "removed": 1,
+        "other": 0
+      }
+    },
+    {
+      "version": "2.1.299",
+      "date": "2026-10-14",
+      "title": "18 new features, 16 improvements, 25 changes, 131 fixes",
+      "highlights": [
+        "Added CLAUDE_CODE_DISABLE_FILE_MENTIONS environment variable: Claude gets the paths of @ file mentions to read with its file tools, not the…",
+        "Added idle compaction in the terminal: a 200K+ token conversation left idle for about 54 minutes is compacted before its one-hour prompt…",
+        "Added CLAUDE_CODE_IDLE_COMPACT_MIN_TOKENS to change idle compaction's 200K-token minimum; \"idleCompaction\": false in settings.json turns it…",
+        "Added $.prompt.media so a prompt.submit hook of a mod installed by managed settings can read the bytes of an image or document attached to…",
+        "Added $.session.identity() for mods installed by managed settings: how the session is signed in, and its organization and email when…"
+      ],
+      "url": "https://www.npmjs.com/package/@anthropic-ai/claude-code/v/2.1.299",
+      "released_at": "2026-10-14T00:23:19.588Z",
+      "summary": "18 added, 16 improved, 25 changed, 131 fixed",
+      "counts": {
+        "added": 18,
+        "improved": 16,
+        "changed": 25,
+        "fixed": 131,
+        "removed": 0,
+        "other": 0
+      }
+    },
+    {
+      "version": "2.1.296",
+      "date": "2026-10-09",
+      "title": "8 new features, 9 improvements, 6 changes, 56 fixes",
+      "highlights": [
+        "Added a code key to the Claude apps gateway's managed.policies[]: the same settings as cli, also applied in Claude Desktop's Code tab…",
+        "Added autoCompactWindow to subagent frontmatter and --agents definitions, so a subagent can auto-compact earlier than the main…",
+        "Added CLAUDE_CODE_WORKFLOW_SUBAGENT_MODEL to run every workflow agent on one model while other subagents keep theirs",
+        "Added CLAUDE_CODE_OVERLOADED_RETRY_MAX_DELAY_MS environment variable to set a longer maximum delay for the backoff when retrying an…",
+        "Added a note in /plugin on a plugin whose hooks are left out because another enabled plugin has the same name"
+      ],
+      "url": "https://www.npmjs.com/package/@anthropic-ai/claude-code/v/2.1.296",
+      "released_at": "2026-10-09T16:58:10.924Z",
+      "summary": "8 added, 9 improved, 6 changed, 56 fixed",
+      "counts": {
+        "added": 8,
+        "improved": 9,
+        "changed": 6,
+        "fixed": 56,
+        "removed": 0,
+        "other": 0
+      }
+    },
+    {
+      "version": "2.1.295",
+      "date": "2026-10-08",
+      "title": "17 new features, 13 improvements, 16 changes, 97 fixes",
+      "highlights": [
+        "Added onFailure: \"block\" for command and HTTP hooks: a hook that can't start, times out, or exits with an unexpected code blocks the action…",
+        "Added Program Status Protocol (OSC 7501) support: terminals that implement it can show whether Claude Code is working, waiting on you, or…",
+        "Added quoted text to the /copy picker, so a drafted message copies without its > markers",
+        "Added a warning to claude plugin install, enable, disable and marketplace add when the settings file they write to does not load",
+        "Added a line on stderr, when it is a terminal, that says what a claude -p run is waiting for when it stays open after its last turn"
+      ],
+      "url": "https://www.npmjs.com/package/@anthropic-ai/claude-code/v/2.1.295",
+      "released_at": "2026-10-08T18:22:58.621Z",
+      "summary": "17 added, 13 improved, 16 changed, 97 fixed",
+      "counts": {
+        "added": 17,
+        "improved": 13,
+        "changed": 16,
+        "fixed": 97,
+        "removed": 0,
+        "other": 0
+      }
+    },
+    {
+      "version": "2.1.294",
+      "date": "2026-10-08",
+      "title": "1 improvement, 1 fix",
+      "highlights": [
+        "Improved how prompt hooks on Stop and SubagentStop written as instructions (such as \"Carry on if the build is broken\") are judged, so…",
+        "Fixed prompt and agent hooks written as instructions (such as \"Block commands that...\") allowing what they should block"
+      ],
+      "url": "https://www.npmjs.com/package/@anthropic-ai/claude-code/v/2.1.294",
+      "released_at": "2026-10-08T03:42:57.084Z",
+      "summary": "1 improved, 1 fixed",
+      "counts": {
+        "added": 0,
+        "improved": 1,
+        "changed": 0,
+        "fixed": 1,
+        "removed": 0,
+        "other": 0
+      }
+    },
+    {
+      "version": "2.1.293",
+      "date": "2026-10-07",
+      "title": "3 new features, 7 improvements, 8 changes, 38 fixes",
+      "highlights": [
+        "Added Claude Haiku 5.5 (claude-haiku-5-5), now the default Haiku model on the Anthropic API — 1M context, $0.10/$0.50 per Mtok ($0.50/$2.50…",
+        "Added agentType to the subagentStatusLine payload, so scripts can tell custom subagent types apart",
+        "Added isDeferred to $.tool.register for mods: false lists the tool's schema in the prompt from the start instead of behind tool search",
+        "Improved startup for Team and Enterprise organizations: policy and managed settings are fetched earlier, and a stalled request is retried…",
+        "Improved Claude in Chrome: fewer page actions are refused when the browser is slow to report its tabs"
+      ],
+      "url": "https://www.npmjs.com/package/@anthropic-ai/claude-code/v/2.1.293",
+      "released_at": "2026-10-07T17:18:04.464Z",
+      "summary": "3 added, 7 improved, 8 changed, 38 fixed",
+      "counts": {
+        "added": 3,
+        "improved": 7,
+        "changed": 8,
+        "fixed": 38,
+        "removed": 0,
+        "other": 0
+      }
+    },
+    {
+      "version": "2.1.292",
+      "date": "2026-10-06",
+      "title": "8 new features, 13 improvements, 7 changes, 64 fixes",
+      "highlights": [
+        "Added --marketplace <source> to claude plugin install: adds the marketplace if needed, under the same policy checks as claude plugin…",
+        "Added an effort parameter to the Agent tool, so Claude runs a sub-agent at the effort level you ask for",
+        "Added CLAUDE_CODE_OVERLOADED_RETRY_BASE_DELAY_MS environment variable to set a longer base delay for the backoff when retrying an…",
+        "Added prompt.autocomplete, an event a mod hooks to add its own rows to the prompt box's autocomplete list",
+        "Added prompt caching to $.model.complete for mods: prompt and system take blocks of text, and cache: true on a block caches the request up…"
+      ],
+      "url": "https://www.npmjs.com/package/@anthropic-ai/claude-code/v/2.1.292",
+      "released_at": "2026-10-06T17:10:31.715Z",
+      "summary": "8 added, 13 improved, 7 changed, 64 fixed",
+      "counts": {
+        "added": 8,
+        "improved": 13,
+        "changed": 7,
+        "fixed": 64,
+        "removed": 0,
+        "other": 0
+      }
     }
   ]
 }

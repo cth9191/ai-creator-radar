@@ -36,6 +36,10 @@ class ParseTest(unittest.TestCase):
         kinds = [h["kind"] for h in fetch.pick_highlights(items, n=2)]
         self.assertEqual(kinds, ["added", "improved"])
 
+    def test_title(self):
+        counts, summary = fetch.summarize(fetch.parse_changelog(SAMPLE)[0])
+        self.assertEqual(fetch.title(counts, summary), "1 new feature, 1 improvement, 1 change, 1 fix")
+
 
 if __name__ == "__main__":
     unittest.main()
